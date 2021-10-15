@@ -5,9 +5,9 @@ import java.lang.reflect.Constructor;
 public class MyThread {
     public static void thread() {
         System.out.println("Start the threads");
-        MyThread1 firstThread = new MyThread1("First Thread",5000); //executed each 5 sec
-        MyThread1 secondThread = new MyThread1("Second Thread",10000); //executed each 10 sec
-        MyThread1 thirdThread = new MyThread1("Third Thread",1000); //executed each 1 sec
+        MyThread1 firstThread = new MyThread1("I am thread one!",5000); //executed each 5 sec
+        MyThread1 secondThread = new MyThread1("I am thread two!",10000); //executed each 10 sec
+        MyThread1 thirdThread = new MyThread1("I am thread three!",1000); //executed each 1 sec
 
         new Thread(firstThread).start();
         new Thread(secondThread).start();
