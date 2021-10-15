@@ -4,24 +4,35 @@ import java.lang.reflect.Constructor;
 
 public class MyThread {
     public static void thread() {
-        System.out.println("test");
+        System.out.println("Start the threads");
+        MyThread1 firstThread = new MyThread1("First Thread",5000); //executed each 5 sec
+        MyThread1 secondThread = new MyThread1("Second Thread",10000); //executed each 10 sec
+        MyThread1 thirdThread = new MyThread1("Third Thread",1000); //executed each 1 sec
+
+        new Thread(firstThread).start();
+        new Thread(secondThread).start();
+        new Thread(thirdThread).start();
+
     }
 }
 
 class MyThread1 implements Runnable {
+    private String message;
+    private int time;
 
-    MyThread1() {
-        //Constructor
+    MyThread1(String message, int time) {
+        this.message = message;
+        this.time = time;
     }
 
     public void run() {
-        for (; ; ) {
+        for (; ;) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(time);
             } catch (InterruptedException e) {
                 return;
             }
-            System.out.println("Thread1");
+            System.out.println("Thread name "+message+" executed each "+time/1000+" seconds");
         }
     }
 }
